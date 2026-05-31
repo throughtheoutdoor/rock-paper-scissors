@@ -38,23 +38,24 @@ function playRound( humanChoice, computerChoice){
 //Scissors beats paper
 //Paper beats rock
 
-let result = "";
 let human = humanChoice.toLowerCase();
 let computer = computerChoice.toLowerCase();
 
 if (human == computer) {
     // checks for tie
-    console.log (`Tie, ${human} matches ${computer}!`);
+    console.log (`Tie, ${human} matches ${computer}.`);
     return;
 } 
 
 if (human == 'rock') {
     if (computer == 'paper') {
-        console.log (`I win, ${computer} beats ${human}.`);
+        console.log (`Computer wins, ${computer} beats ${human}.`);
+        computerScore += 1;
         return;
     }
     else { //computer picked scissors
-        console.log(`You win, ${human} beats ${computer}.`);
+        console.log(`User wins, ${human} beats ${computer}.`);
+        humanScore += 1;
         return;
     }
     
@@ -62,11 +63,13 @@ if (human == 'rock') {
 
 if (human == 'paper') {
     if (computer == 'scissors') {
-        console.log (`I win, ${computer} beats ${human}.`);
+        console.log (`Computer wins, ${computer} beats ${human}.`);
+        computerScore += 1;
         return;
     }
     else { //computer picked rock
-        console.log(`You win, ${human} beats ${computer}.`);
+        console.log(`User wins, ${human} beats ${computer}.`);
+        humanScore += 1;
         return;
     }
     
@@ -74,11 +77,13 @@ if (human == 'paper') {
 
 if (human == 'scissors') {
     if (computer == 'rock') {
-        console.log (`I win, ${computer} beats ${human}.`);
+        console.log (`Computer wins, ${computer} beats ${human}.`);
+        computerScore += 1;
         return;
     }
     else { //computer picked paper
-        console.log(`You win, ${human} beats ${computer}.`);
+        console.log(`User wins, ${human} beats ${computer}.`);
+        humanScore += 1;
         return;
     }
     
@@ -87,6 +92,12 @@ if (human == 'scissors') {
 }
 
             
+playRound(getHumanChoice(),getComputerChoice());
 
+// for (let i = 1; humanScore < 10 && computerScore < 10 ; i++) {
 
-playRound("scissors", "paper");
+//     console.log(`Round: ${i}`);
+//     playRound( getComputerChoice(), getComputerChoice() );
+//     console.log (`Scores: User - ${humanScore} Computer: ${computerScore}`);
+
+// }
