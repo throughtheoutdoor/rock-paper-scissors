@@ -53,7 +53,7 @@ if (human == 'rock') {
         console.log (`I win, ${computer} beats ${human}.`);
         return;
     }
-    else {
+    else { //computer picked scissors
         console.log(`You win, ${human} beats ${computer}.`);
         return;
     }
@@ -65,7 +65,7 @@ if (human == 'paper') {
         console.log (`I win, ${computer} beats ${human}.`);
         return;
     }
-    else {
+    else { //computer picked rock
         console.log(`You win, ${human} beats ${computer}.`);
         return;
     }
@@ -77,7 +77,7 @@ if (human == 'scissors') {
         console.log (`I win, ${computer} beats ${human}.`);
         return;
     }
-    else {
+    else { //computer picked paper
         console.log(`You win, ${human} beats ${computer}.`);
         return;
     }
