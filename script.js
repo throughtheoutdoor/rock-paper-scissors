@@ -43,16 +43,50 @@ let human = humanChoice.toLowerCase();
 let computer = computerChoice.toLowerCase();
 
 if (human == computer) {
+    // checks for tie
     console.log (`Tie, ${human} matches ${computer}!`);
+    return;
 } 
-// else if (human == "rock" && computer == "scissors") {
-//     console.log ("You win! Rock beats scissors.");
-// } else  (human == "rock" && computer == "paper"){
-//     console.log ("You lose! Paper covers rock.");
-// 
+
+if (human == 'rock') {
+    if (computer == 'paper') {
+        console.log (`I win, ${computer} beats ${human}.`);
+        return;
+    }
+    else {
+        console.log(`You win, ${human} beats ${computer}.`);
+        return;
+    }
+    
+}
+
+if (human == 'paper') {
+    if (computer == 'scissors') {
+        console.log (`I win, ${computer} beats ${human}.`);
+        return;
+    }
+    else {
+        console.log(`You win, ${human} beats ${computer}.`);
+        return;
+    }
+    
+}
+
+if (human == 'scissors') {
+    if (computer == 'rock') {
+        console.log (`I win, ${computer} beats ${human}.`);
+        return;
+    }
+    else {
+        console.log(`You win, ${human} beats ${computer}.`);
+        return;
+    }
+    
+}
+
 }
 
             
 
 
-playRound("paper", "paper");
+playRound("scissors", "paper");
