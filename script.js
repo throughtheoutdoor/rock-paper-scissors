@@ -1,5 +1,4 @@
-let humanScore = 0;
-let computerScore = 0;
+
 
 
 function getComputerChoice() {
@@ -31,68 +30,98 @@ rock, paper or scissors`);
     return choice;
 }
 
+function playGame() {
 
-function playRound( humanChoice, computerChoice){
-//determines a winner given the two parameters
-//Rock beats scissors
-//Scissors beats paper
-//Paper beats rock
+    let humanScore = 0;
+    let computerScore = 0;
+    let ties = 0;
+    
 
-let human = humanChoice.toLowerCase();
-let computer = computerChoice.toLowerCase();
+    function playRound(){
+    //determines a winner given the two parameters
+    //Rock beats scissors
+    //Scissors beats paper
+    //Paper beats rock
 
-if (human == computer) {
-    // checks for tie
-    console.log (`Tie, ${human} matches ${computer}.`);
-    return;
+    let human = getComputerChoice().toLowerCase();
+    let computer = getComputerChoice().toLowerCase();
+
+    if (human == computer) {
+        // checks for tie
+        console.log (`Tie, ${human} matches ${computer}.`);
+        ties += 1;
+        return;
+    } 
+
+    if (human == 'rock') {
+        if (computer == 'paper') {
+            console.log (`Computer wins, ${computer} beats ${human}.`);
+            computerScore += 1;
+            return;
+        }
+        else { //computer picked scissors
+            console.log(`User wins, ${human} beats ${computer}.`);
+            humanScore += 1;
+            return;
+        }
+        
+    }
+
+    if (human == 'paper') {
+        if (computer == 'scissors') {
+            console.log (`Computer wins, ${computer} beats ${human}.`);
+            computerScore += 1;
+            return;
+        }
+        else { //computer picked rock
+            console.log(`User wins, ${human} beats ${computer}.`);
+            humanScore += 1;
+            return;
+        }
+        
+    }
+
+    if (human == 'scissors') {
+        if (computer == 'rock') {
+            console.log (`Computer wins, ${computer} beats ${human}.`);
+            computerScore += 1;
+            return;
+        }
+        else { //computer picked paper
+            console.log(`User wins, ${human} beats ${computer}.`);
+            humanScore += 1;
+            return;
+        }
+        
+    }
+
+    
+
 } 
 
-if (human == 'rock') {
-    if (computer == 'paper') {
-        console.log (`Computer wins, ${computer} beats ${human}.`);
-        computerScore += 1;
-        return;
+    for (let i = 0; i < 5; i++){
+        playRound();
     }
-    else { //computer picked scissors
-        console.log(`User wins, ${human} beats ${computer}.`);
-        humanScore += 1;
-        return;
-    }
-    
-}
 
-if (human == 'paper') {
-    if (computer == 'scissors') {
-        console.log (`Computer wins, ${computer} beats ${human}.`);
-        computerScore += 1;
-        return;
-    }
-    else { //computer picked rock
-        console.log(`User wins, ${human} beats ${computer}.`);
-        humanScore += 1;
-        return;
-    }
-    
-}
+    console.log (`COMPUTER:${computerScore} HUMAN:${humanScore}`)
 
-if (human == 'scissors') {
-    if (computer == 'rock') {
-        console.log (`Computer wins, ${computer} beats ${human}.`);
-        computerScore += 1;
-        return;
+    if (humanScore == computerScore) {
+        return (`After five games, there was a draw. The user won:${humanScore} games and the computer won ${computerScore} games. There were ${ties} tied games.`);
     }
-    else { //computer picked paper
-        console.log(`User wins, ${human} beats ${computer}.`);
-        humanScore += 1;
-        return;
+
+    if ( humanScore > computerScore) {
+        return(`After five games, the user has won with a score of Wins:${humanScore} Losses:${computerScore} Draws:${ties}.`);    
+    } else {
+        return (`After five games, the computer has won with a score of Wins:${computerScore} Losses:${humanScore} Draws:${ties}.`);
     }
+
+
     
-}
 
 }
 
             
-playRound(getHumanChoice(),getComputerChoice());
+console.log (playGame());
 
 // for (let i = 1; humanScore < 10 && computerScore < 10 ; i++) {
 
