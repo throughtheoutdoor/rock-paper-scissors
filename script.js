@@ -38,12 +38,12 @@ function playGame() {
     
 
     function playRound(){
-    //determines a winner given the two parameters
+    //determines a winner given the two choices
     //Rock beats scissors
     //Scissors beats paper
     //Paper beats rock
 
-    let human = getComputerChoice().toLowerCase();
+    let human = getHumanChoice().toLowerCase();
     let computer = getComputerChoice().toLowerCase();
 
     if (human == computer) {
@@ -91,20 +91,15 @@ function playGame() {
             console.log(`User wins, ${human} beats ${computer}.`);
             humanScore += 1;
             return;
-        }
-        
+        }        
     }
-
-    
-
 } 
 
     for (let i = 0; i < 5; i++){
         playRound();
     }
 
-    console.log (`COMPUTER:${computerScore} HUMAN:${humanScore}`)
-
+  
     if (humanScore == computerScore) {
         return (`After five games, there was a draw. The user won:${humanScore} games and the computer won ${computerScore} games. There were ${ties} tied games.`);
     }
@@ -122,11 +117,3 @@ function playGame() {
 
             
 console.log (playGame());
-
-// for (let i = 1; humanScore < 10 && computerScore < 10 ; i++) {
-
-//     console.log(`Round: ${i}`);
-//     playRound( getComputerChoice(), getComputerChoice() );
-//     console.log (`Scores: User - ${humanScore} Computer: ${computerScore}`);
-
-// }
